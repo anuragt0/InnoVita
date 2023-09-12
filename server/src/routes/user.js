@@ -1,39 +1,36 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
+
 const multer = require('multer');
 const path = require('path');
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, 'uploads/'); // Uploads will be stored in the 'uploads' directory
-    },
-    filename: (req, file, cb) => {
-      cb(null, `${Date.now()}-${file.originalname}`); // Generate a unique filename
-    },
-  });
-  
-  const upload = multer({ storage });
+  destination: (req, file, cb) => {
+    cb(null, 'uploads'); 
+  },
+  filename: (req, file, cb) => {
+    const uniqueFilename = `${Date.now()}-${file.originalname}`;
+    cb(null, uniqueFilename); 
+  },
+});
+
+const upload = multer({ storage });
+router.post('/upload', upload.single('image'), (req, res) => {
+  const fileName = req.file.filename;
+  const imagePath = req.file.path;
+
+  try {
+    console.log({"img" : imagePath});
+    res.status(200).json({ message: 'Image uploaded successfully', imagePath });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
 
 
 
-// Handle the image upload route
-router.post("/image-upload", upload.single('image'), (req, res) => {
-    // Access the uploaded image through req.file
-
-    console.log("HERE");
-    try {
-        const imagePath = req.file.path;
-        
-        res.status(200).json({ message: 'Image uploaded successfully', imagePath });
-        
-    } catch (error) {
-        res.status(500).json({success:false, message: error.message});
-    }
-  });
-
-router.get("/home", (req,res)=>{
-    res.json({success: true});
-})
-
-
+router.get("/home", (req, res) => {
+  res.json({ success: true });
+});
 
 module.exports = router;

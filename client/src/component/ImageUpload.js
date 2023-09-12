@@ -17,16 +17,15 @@ function ImageUpload() {
     formData.append('image', selectedImage);
 
     try {
-      const response = await fetch('http://localhost:5000/api/user/image-upload', {
+      const response = await fetch('http://localhost:5000/api/user/upload', {
         method: 'POST',
         body: formData,
       });
 
-      // Handle the response as needed
       if (response.ok) {
         console.log('Image uploaded successfully');
       } else {
-        console.error('Image upload failed');
+        console.error('Error uploading image:', response.statusText);
       }
     } catch (error) {
       console.error('Error uploading image:', error);
