@@ -34,7 +34,6 @@ function ImageUpload() {
 
   return (
     <div>
-      <h2>Upload an Image</h2>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       <button onClick={handleUpload}>Upload</button>
     </div>

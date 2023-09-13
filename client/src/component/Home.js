@@ -1,73 +1,78 @@
 import React, { useState } from 'react';
-import NavBar from './Navbar';
-import '../css/home.css';
+import { FiArrowRight } from "react-icons/fi";
 
-import Image1 from '../images/home-bg.png';
+import BannerBackground from "../Assets/home-banner-background.png";
+import BannerImage from "../Assets/home-banner-image.png";
+import Navbar from "./Navbar";
+// import ImageUpload from "./ImageUpload";
 
-import { motion } from 'framer-motion'
-import { textVariant } from './framer'
 
 
-function HomePage() {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [reportGenerated, setReportGenerated] = useState(false);
+const Home = () => {
 
-  const handleImageSelect = (event) => {
-    const file = event.target.files[0];
-    setSelectedImage(file);
+// * upload image working
+
+const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    setSelectedImage(e.target.files[0]);
   };
 
-  const generateReport = () => {
-    setReportGenerated(true);
+  const handleUpload = async () => {
+    if (!selectedImage) {
+      console.error('Please select an image to upload.');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('image', selectedImage);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/user/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log('Image uploaded successfully');
+      } else {
+        console.error('Error uploading image:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   };
+
+// *
+
 
   return (
-    <>
-      <NavBar />
-
-      <div className={`container-page1`}>
-        <div className='img-container'>
-          <img src={Image1} className='image-top'></img>
+    <div className="home-container">
+      <Navbar />
+      <div className="home-banner-container">
+        <div className="home-bannerImage-container">
+          <img src={BannerBackground} alt="" />
         </div>
-
-        <div className='container-2'>
-          <div className='fade-in-from-right'>
-            <motion.div variants={textVariant}
-              initial="hidden"
-              whileInView="show">
-
-              <h3 className='text-top'>Welcome to InnoVita</h3>
-              <p>Dive into our platform to simplify your food choices .
-              </p>
-
-            </motion.div>
-
-
-
-
-            <label htmlFor="file-input" className="file-input-label">
-              <input
-                type="file"
-                id="file-input"
-                accept="image/*"
-                onChange={handleImageSelect}
-                className="file-input"
-              />
-              <div className='hero-btn-wrap'>
-                <motion.a className='btn'
-                  whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
-                  whileTap={{ scale: 0.9, backgroundColor: "#71BF44", color: 'rgb(37, 23, 107)' }}
-                >
-                   Upload an Image
-                </motion.a></div>
-            </label>
-          </div>
-
+        <div className="home-text-section">
+          <h1 className="primary-heading">
+            Welcome to InnoVita
+          </h1>
+          <h1 className="primary-heading">
+            Your Healthier Food Companion
+          </h1>
+          <p className="primary-text">
+          At InnoVita, we're passionate about transforming your food choices into a seamless journey toward a healthier you.
+          </p>
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <button className="secondary-button" onClick={handleUpload} >
+            Upload Now <FiArrowRight />{" "}
+          </button>
         </div>
-      </div >
-    </>
-
+        <div className="home-image-section">
+          <img src={BannerImage} alt="" />
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
-export default HomePage;
+export default Home;

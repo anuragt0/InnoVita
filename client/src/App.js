@@ -1,15 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ImageUpload from './component/ImageUpload';
-import Home from './component/Home';
+import Main from './component/Main';
 
 function App() {
   return (
     <Router>
     <div>
       <Routes>
-        <Route path="/" element={<ImageUpload />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/image" element={<ImageUpload />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </div>
   </Router>
