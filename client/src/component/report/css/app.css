@@ -1,0 +1,256 @@
+.App {
+    display: flex;
+  }
+  
+  .left-nav {
+    width: 20%;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .left-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .left-nav li {
+    padding: 10px;
+  }
+  
+  .right-body {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .right-body ul {
+    list-style: none;
+  }
+  
+  .right-body li {
+    cursor: pointer;
+  }
+  
+  .ingredient-description {
+    margin-top: 20px;
+    background-color: #f1bcbc;
+  }
+  
+ 
+  .rotate-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease; /* Optional smooth transition */
+  }
+  
+  /* RightBody.css */
+  .right-body{
+    padding-left: 100px;
+    padding-right: 100px;
+    
+    background-color: #ebe3e3;
+  }
+  
+  
+  .ingredient-div {
+    background-color: #eee6e6; /* Set your desired background color */
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth background color transition */
+  }
+  .ingredient_div :hover{
+    transform: translateY(5px); /* Move the button down slightly on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Increase the shadow on hover */
+  cursor: pointer;
+  }
+  
+  .active {
+    background-color: #7d0b0b; /* Highlight the active ingredient div */
+  }
+  
+  .rotate-icon {
+    transform: rotate(180deg); /* Rotate the icon when the dropdown is open */
+  }
+ 
+  li {
+    width: auto; /* Let the content determine the width */
+    margin-bottom: 10px; /* Optional: Add spacing between li elements */
+ 
+    border-radius: 12px;
+
+  }
+  
+  /* Add more styles as needed */
+
+        /* Base styles for the container */
+        .flex {
+            display: flex;
+            align-items: center;
+            margin-top: 2px;
+            justify-content: space-between;
+        }
+
+        /* Style for the left part containing the low value */
+        .low-value {
+            min-width: 2.8125rem;
+            font-weight: bold;
+            font-size: 0.875rem;
+            line-height: 1.0625rem;
+            color: #333; /* Change this color as needed */
+        }
+
+        /* Style for the "Low" text */
+        .low-text {
+            font-size: 0.75rem;
+            font-weight: normal;
+            color: #777; /* Change this color as needed */
+            margin-top: 0.125rem;
+        }
+
+        /* Style for the middle part containing the gradient bar */
+        .gradient-bar {
+            width: 100%;
+            max-width: 28rem;
+            padding: 0 1rem;
+            height: 1px;
+            background: linear-gradient(to right, #21B7A8, #F9BA4D, #EF5854);
+            position: relative;
+        }
+
+        /* Style for the indicator dot */
+        .indicator-dot {
+            width: 0.3125rem;
+            height: 0.3125rem;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 0.125rem solid #EF5854;
+            position: absolute;
+            top: -0.3125rem;
+            left: 46.7526%;
+        }
+
+        /* Style for the tooltip */
+        .tooltip {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            z-index: 20;
+            white-space: nowrap;
+            pointer-events: none;
+            border-radius: 0.125rem;
+            background-color: #333; /* Change this color as needed */
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: bold;
+            opacity: 0;
+            padding: 0.125rem 0.25rem;
+            transform: translateX(-50%);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            bottom: calc(100% + 0.5rem);
+            left: 50%;
+        }
+
+        /* Style for the arrow in the tooltip */
+        .tooltip::before {
+            content: '';
+            position: absolute;
+            height: 0.125rem;
+            width: 0.125rem;
+            background-color: #333; /* Change this color as needed */
+            transform: rotate(45deg);
+            bottom: -0.0625rem;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        /* Style for the right part containing the high value */
+        .high-value {
+            font-weight: bold;
+            font-size: 0.875rem;
+            line-height: 1.0625rem;
+            color: #333; /* Change this color as needed */
+        }
+
+        /* Style for the "High" text */
+        .high-text {
+            font-size: 0.75rem;
+            font-weight: normal;
+            color: #777; /* Change this color as needed */
+            text-align: right;
+            margin-top: 0.125rem;
+        }
+
+        /* Style for the Chart.js container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the container on the page */
+  border: 1px solid #ddd; /* Add a border for visualization */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a shadow for visualization */
+}
+
+/* Style for the inner elements if needed */
+.chart-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.chart-description {
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Additional styles as needed */
+
+  
+
+
+/* App.css */
+.chart-container {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Style for the button container */
+.featuresSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff; /* Set the background color as needed */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* Style for the button text */
+.featuresText {
+  font-size: 1.5rem;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Style for the button image */
+.featuresImg {
+  width: 135px;
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+/* Hover effect for the button */
+.featuresSection:hover {
+  transform: translateY(5px); /* Move the button down slightly on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Increase the shadow on hover */
+  cursor: pointer;
+}

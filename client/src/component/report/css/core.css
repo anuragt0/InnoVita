@@ -1,0 +1,86 @@
+/* App.css */
+
+/* General styles for the entire application */
+.App {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Styles for the CoreContainer component */
+  .coreContainer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .coreHeader {
+    margin-bottom: 20px;
+  }
+  
+  .coreTitle {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
+  
+  .coreSubTitle {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  /* Styles for CoreCard component */
+  .coreCardsContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .coreCards {
+    flex: 1;
+    border-radius: 10px;
+    padding: 20px;
+    color: #333;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .coreCards:hover {
+    transform: translateY(5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .coreCardHeader {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .coreCardContent {
+    padding: 10px;
+  }
+  
+  .coreStepsRow {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  
+  .coreStepsRowIndex {
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  
+  .coreStepsRowText {
+    flex: 1;
+  }
+  
